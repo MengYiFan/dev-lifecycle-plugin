@@ -1,0 +1,65 @@
+{
+  "name": "kl-lifecycle-manager",
+  "displayName": "KL Lifecycle Manager",
+  "description": "Lifecycle management system based on Git branches for KL R&D.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Workflow",
+    "Productivity"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "kl-lifecycle.openPanel",
+        "title": "Open KL Lifecycle"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "kl-lifecycle-sidebar",
+          "title": "KL Lifecycle",
+          "icon": "assets/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "kl-lifecycle-sidebar": [
+        {
+          "type": "webview",
+          "id": "klLifecycleView",
+          "name": "Lifecycle Manager"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "npm run build:webview && npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build:webview": "cd webview-ui && npm install && npm run build",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "ts-loader": "^9.4.0",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.1.0",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "simple-git": "^3.19.0"
+  }
+}
