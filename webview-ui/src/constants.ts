@@ -1,0 +1,17 @@
+export const LIFECYCLE_STEPS = [
+  { id: 'prd', label: 'PRD', type: 'link', required: true, description: 'Enter PRD URL' },
+  { id: 'design', label: 'Design Specs', type: 'link', required: false, description: 'Enter Design URL (Optional)' },
+  { id: 'meegleId', label: 'Meegle ID', type: 'number', required: true, description: 'Enter Meegle ID' },
+  { id: 'backendSpec', label: 'Backend Specs', type: 'link', required: false, description: 'Enter Backend Spec URL' },
+  { id: 'frontendSpec', label: 'Frontend Specs', type: 'link', required: false, description: 'Enter Frontend Spec URL' },
+  { id: 'dev', label: 'Development', type: 'action', actionLabel: 'Commit & Push', nextLabel: 'Finish & Next', required: true },
+  { id: 'integration', label: 'Integration', type: 'radio', options: ['Completed', 'Not Needed'], required: false },
+  { id: 'smoke', label: 'Smoke Test', type: 'radio', options: ['Completed', 'Not Needed'], required: false },
+  { id: 'test', label: 'Test Phase', type: 'tag', tagPrefix: 'test', actionLabel: 'Commit & Tag', nextLabel: 'Finish & Next', required: true },
+  { id: 'qa', label: 'QA Phase', type: 'tag', tagPrefix: 'test', actionLabel: 'Commit & Tag', nextLabel: 'Finish & Next', required: true },
+  { id: 'acceptance', label: 'Acceptance', type: 'tag', tagPrefix: 'test', actionLabel: 'Commit & Tag', nextLabel: 'Finish & Next', required: true },
+  { id: 'stage', label: 'Pre-release (Stage)', type: 'tag', tagPrefix: 'stage', actionLabel: 'Commit & Tag (Stage)', nextLabel: 'Finish & Next', required: true },
+  { id: 'report', label: 'Test Report', type: 'link', required: true, description: 'Enter Test Report URL' },
+  { id: 'online', label: 'Online', type: 'action', actionLabel: 'Mark Online', nextLabel: 'Finish', required: true },
+  { id: 'regression', label: 'Regression', type: 'finish', actionLabel: 'Complete Lifecycle', required: true },
+] as const;
